@@ -22,11 +22,9 @@ body {
 }
 
 .main-title {
-    text-align: center;
-    color: #fff;
-    font-family: Roboto;
+    
     font-size: 30px;
-    margin-bottom: 48px;
+  
 }
 
 .main-box {
@@ -80,7 +78,7 @@ body {
 .marks-box {
     display: flex;
     justify-content: center;
-}
+} 
 
 .action-box {
     text-align: center;
@@ -99,7 +97,7 @@ body {
 
 .marks-box:nth-child(odd) {
     justify-content: flex-end;
-}
+}  
 
 .marks-box input {
     width: 103px;
@@ -113,19 +111,4 @@ body {
 
 .grade-box {
     text-align: center;
-}
-
-@media (max-width:776px) {
-    .input-box input {
-        width: 100%;
-    }
-    .body {
-        padding: 0 10px;
-    }
-    .footer {
-        grid-template-columns: 1fr 1fr;
-    }
-    .footer p:first-child {
-        grid-column-start: 1;
-    }
 }
