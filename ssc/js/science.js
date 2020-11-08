@@ -16,27 +16,41 @@ const mainFunc = () =>{
      assignPoints(marksToPoints)
      mapGradesToPoints() 
      
+    
      
-      // Dealing with optional
-     
-     const optional = getOptional()
     
     const total_points = getTotalPointsArray()
-      
+     //point 
+     const gpa = document.getElementById('gpa')
+     gpa.innerText = (total_points.reduce((a, b) =>  a + b, 0)/9)
+      console.log(total_points)
+       // Dealing with optional
+     
+     const optional = getOptional()
     if (optional === 'bio'){ 
+     
+       failDetectionFinal(5)
        
         if(total_points[5] < 2){
         total_points[5] = 0 ;
-        
       } 
       else if (total_points[5] > 2){
         total_points[5] = (total_points[5] - 2)
-        
+      }
+
+      marks[7] =  [marks[7].reduce((a, b) =>  a + b, 0)]
+      if(marks[7][0] < 40){
+        marks[7][0] = 0
+      } else if (marks[7][0] > 40){
+        marks[7][0] = marks[7][0] - 40
       }
     
-    } else if (optional === 'hm'){
+    } 
+     if (optional === 'hm'){
+       
+      failDetectionFinal(6)
       
-        if(total_points[6] < 2){
+      if(total_points[6] < 2){
         total_points[6] = 0
         
       } 
@@ -44,14 +58,21 @@ const mainFunc = () =>{
         total_points[6] = (total_points[6] - 2)
         
       }
+      marks[8] = [marks[8].reduce((a, b) =>  a + b, 0)]
+      if(marks[8][0] < 40){
+        marks[8][0] = 0
+      } else if (marks[8][0] > 40){
+        marks[8][0] = marks[8][0] - 40
+      }
+
+      
     
     }
-    console.log(marks)
+    
+    
     // Main Results
     getTotalNum(marks)
-    //point 
-    const gpa = document.getElementById('gpa')
-    gpa.innerText = (total_points.reduce((a, b) =>  a + b, 0)/9)
+    
     // Grade
     document.getElementById('gpaLatter').innerText = latter_grade(parseFloat(gpa.innerText))
 }
