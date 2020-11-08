@@ -12,6 +12,18 @@ const getOptional = () => {
   }
 }
 
+const failDetectionFinal = num =>{
+  for(let i = 0; i < getTotalPointsArray().length ; i++){
+    if (getTotalPointsArray()[num] == 0){
+      continue
+    }
+    if (getTotalPointsArray()[i] == 0){
+      gpa.innerText = 00
+      break
+    }
+  }
+}
+
 const getTotalNum = (marks) => document.getElementById('totalNum').innerText = marks.reduce((a,b) => a.concat(b),[]).reduce((a,b) => a + b, 0)
 
 const getTotalPointsArray = () => Array.from(document.getElementsByClassName('point')).map(e => parseFloat(e.innerText))
